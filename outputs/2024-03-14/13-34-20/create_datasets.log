@@ -1,0 +1,5 @@
+[2024-03-14 13:34:20,444][create_datasets][INFO] - Starting script
+[2024-03-14 13:34:20,444][create_datasets][INFO] - Read data path: data/raw/hour.csv
+[2024-03-14 13:34:20,444][create_datasets][INFO] - Train data path: data/interim/train.csv
+[2024-03-14 13:34:20,444][create_datasets][INFO] - Test data path: data/interim/test.csv
+[2024-03-14 13:34:20,507][create_datasets][INFO] - Data written successfully.

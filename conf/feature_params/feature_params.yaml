@@ -1,0 +1,4 @@
+feature_names: ['hr', 'mnth', 'weekday']
+period: [24, 12, 7]
+lag_target: 'cnt'
+lag: 31

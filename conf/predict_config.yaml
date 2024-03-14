@@ -1,0 +1,3 @@
+defaults:
+  - feature_params: feature_params
+  - path_config: path_config

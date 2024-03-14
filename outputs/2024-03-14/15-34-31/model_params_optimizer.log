@@ -1,0 +1,4 @@
+[2024-03-14 15:34:31,795][model_optimization][INFO] - Starting script
+[2024-03-14 15:36:07,243][model_optimization][INFO] - Best hyperparameters: {'max_depth': -1, 'n_estimators': 150, 'num_leaves': 75}
+[2024-03-14 15:36:07,243][model_optimization][INFO] - Writing best hyperparameters to: conf/model_hparams/model_hparams.yaml
+[2024-03-14 15:36:07,245][model_optimization][INFO] - Finished script
