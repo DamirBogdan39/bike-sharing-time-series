@@ -1,5 +1,10 @@
 # Demand forecasting using bike sharing dataset
 
+A repo containing code to create a LightGBM regressor to predict bike demand on a bike sharing data set.
+Dataset was taken from Kaggle: https://www.kaggle.com/datasets/imakash3011/rental-bike-sharing
+
+Project includes: splitting into training and testing data, performing optimization, retraining the model and using the model for prediction.
+
 Project Organization
 ------------
     ├── configs

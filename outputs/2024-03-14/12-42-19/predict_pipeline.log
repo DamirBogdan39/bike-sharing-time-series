@@ -1,6 +1,0 @@
-[2024-03-14 12:42:19,977][predict_pipeline][INFO] - Loading pretrained model.
-[2024-03-14 12:42:19,981][predict_pipeline][INFO] - Model loaded.
-[2024-03-14 12:42:19,981][predict_pipeline][INFO] - Loading data.
-[2024-03-14 12:42:19,993][predict_pipeline][INFO] - Data loaded.
-[2024-03-14 12:42:19,994][predict_pipeline][INFO] - Making prediction.
-[2024-03-14 12:42:20,007][predict_pipeline][INFO] - Prediction is done and saved to the file src/model/predictions.csv
