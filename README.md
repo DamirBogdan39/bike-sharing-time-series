@@ -55,3 +55,10 @@ Project Organization
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     ├── README.md          <- The top-level README for developers using this project.
+------------
+## Run optimization
+Run optimization:  `python src/model_params_optimizer.py`
+## Run training
+Run model train:  `python src/train_pipeline.py`
+## Run prediction
+Run model train:  `python src/predict_pipeline.py`
