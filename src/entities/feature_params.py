@@ -7,4 +7,4 @@ class FeatureParams:
     feature_names: List[str]
     period: List[int]
     lag_target: str
-    lag: int
+    selected_lags: List[int]

@@ -3,6 +3,4 @@ from dataclasses import dataclass, field
 
 @dataclass()
 class SplittingParams:
-    test_size: int = field(default=1*24*31)
-    random_state: int = field(default=42)
-    shuffle: bool = field(default=False)
+    split_date: str = field(default="2012-11-30")

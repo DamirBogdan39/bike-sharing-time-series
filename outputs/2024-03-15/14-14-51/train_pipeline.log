@@ -1,0 +1,14 @@
+[2024-03-15 14:14:51,666][model_training][INFO] - Starting script
+[2024-03-15 14:14:51,667][model_training][INFO] - Loading training data.
+[2024-03-15 14:14:51,704][model_training][INFO] - Training data loaded.
+[2024-03-15 14:14:51,704][model_training][INFO] - Training model.
+[2024-03-15 14:14:52,119][model_training][INFO] - Finished training.
+[2024-03-15 14:14:52,119][model_training][INFO] - Loading testing data.
+[2024-03-15 14:14:52,127][model_training][INFO] - Testing data loaded.
+[2024-03-15 14:14:52,127][model_training][INFO] - Making prediction.
+[2024-03-15 14:14:52,130][model_training][INFO] - Evaluating model.
+[2024-03-15 14:14:52,131][model_training][INFO] - Metrics for test dataset is {'mean_absolute_error': 18.859838274932613, 'root_mean_squared_error': 29.750127409181523, 'r2_score': 0.9674052713826887}
+[2024-03-15 14:14:52,131][model_training][INFO] - Saving model.
+[2024-03-15 14:14:52,136][model_training][INFO] - Model saved.
+[2024-03-15 14:14:52,136][model_training][INFO] - Metrics saved to src/model/metrics.json.
+[2024-03-15 14:14:52,137][model_training][INFO] - Finished script

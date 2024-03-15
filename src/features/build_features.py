@@ -1,6 +1,7 @@
 from sklearn.preprocessing import FunctionTransformer, SplineTransformer
 import numpy as np
 import pandas as pd
+from typing import List
 
 from src.entities import FeatureParams
 
@@ -59,7 +60,7 @@ def spline_transformer(df: pd.DataFrame, column_name: str, period: int) -> pd.Da
     """
 
 
-    splines = periodic_spline_transformer(period, n_splines=12).fit_transform(df[[column_name]])
+    splines = periodic_spline_transformer(period, n_splines=None).fit_transform(df[[column_name]])
     splines_df = pd.DataFrame(
         splines,
         columns=[f"{column_name}_spline_{i}" for i in range(splines.shape[1])],
@@ -69,22 +70,22 @@ def spline_transformer(df: pd.DataFrame, column_name: str, period: int) -> pd.Da
     return pd.concat([df, splines_df], axis=1)
 
 
-def get_lag_features(df: pd.DataFrame, column: str, lag: int) -> pd.DataFrame:
+def get_lag_features(df: pd.DataFrame, column: str, lags: List[int]) -> pd.DataFrame:
     """
     Create lag features from the target column. Lags are created from previous values of target.
 
     Parameters:
     - df (pd.DataFrame): Original DataFrame
     - column (str): Name of the target variable.
-    - lag (int): Number of how many lag features to create. i.e. 10 will create a lag of 10 previous days.
+    - lags (list): List of integers indicating which lag features to create. 
+                    e.g. [1, 7, 30] will create lags of 1, 7 and 30 previous hours.
 
     Returns:
     - df (pd.DataFrame): DataFrame which includes lag columns.
     """
     df["dteday"] = pd.to_datetime(df["dteday"])
-    df.sort_values("dteday", inplace = True)
-    for i in range(1, lag + 1):
-        df[f"{column}" + "_lag_" + str(i)] = df[column].shift(i)
+    for lag in lags:
+        df[f"{column}_lag_{lag}"] = df[column].shift(lag)
 
     return df
 
@@ -104,9 +105,16 @@ def preprocess(df: pd.DataFrame,
         df = trig_transformer(df, s, n)
         df = spline_transformer(df, s, n)
 
-    df = get_lag_features(df, params.lag_target, params.lag)
+    df = get_lag_features(df, params.lag_target, params.selected_lags)
 
-    df = df.drop(["Unnamed: 0", "instant", "dteday", "casual", "registered"], axis=1)
+    feats = (["season", "yr", "mnth", "holiday", "weekday", "workingday"] +
+         ["hr_sin", "hr_cos", "mnth_sin", "mnth_cos", "weekday_sin", "weekday_cos"] +
+         [f"hr_spline_{i}" for i in range(24)] +
+         [f"mnth_spline_{i}" for i in range(12)] +
+         [f"weekday_spline_{i}" for i in range(7)] +
+         [f"cnt_lag_{i}" for i in params.selected_lags])
+    
+    df = df[feats + ["cnt"]]
 
     return df
 
